@@ -1,0 +1,14 @@
+*.iml
+.gradle
+local.properties
+.idea
+build
+gradle
+
+*.hprof
+*.alloc
+*.li
+
+.idea/instapk.xml
+instapk.log
+instapk.log*
