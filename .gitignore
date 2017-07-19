@@ -6,6 +6,5 @@ local.properties
 build
 captures
 .externalNativeBuild
-
 .idea
 instapk.log*
