@@ -65,8 +65,11 @@ public class SignActivityTest {
     @Test
     public void checkIfshowMaximumAttemptError() throws Exception {
         activityTestRule.launchActivity(new Intent());
-
-        // TODO: 7/20/17 implement show maximum attemt error ui test
+        onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
+        onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
+        onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
+        onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
+        onView(withText("Maximum login attempts reached.")).check(matches(isDisplayed()));
 
     }
 
