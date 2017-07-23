@@ -1,17 +1,23 @@
 package com.hafsalrahman.tasky.signin;
 
+import javax.inject.Inject;
+import retrofit2.Retrofit;
+
 /**
  * @author hafsalrahman on 7/19/17.
  */
 
-public class SignInPresenter {
+public class SignInPresenter implements SignInContract.Presenter {
 
     private static final int MAX_SIGNIN_ATTEMPT = 3;
-    private final SignInView signInView;
+    Retrofit retrofit;
+    SignInContract.View mView;
     private int signInAttempt;
 
-    public SignInPresenter(SignInView signInView) {
-        this.signInView = signInView;
+    @Inject
+    public SignInPresenter(Retrofit retrofit, SignInContract.View mView) {
+        this.retrofit = retrofit;
+        this.mView = mView;
     }
 
     public int incrementSignInAttempt() {
@@ -27,39 +33,51 @@ public class SignInPresenter {
         return signInAttempt >= MAX_SIGNIN_ATTEMPT;
     }
 
-    public void doSignIn(String userName, String password) {
+    @Override
+    public void signIn(String username, String password) {
+
+        String errorMesage = null;
+
         if (isSignInAttemptExceeded()) {
-            signInView.showMaxLoginAttemptError();
-            return;
-        }
-        if (userName.length() > 0 && password.length() > 0) {
-            if (userName.equals("hafsal")) {
+
+            errorMesage = "Maximum sign in attempt reached";
+
+        } else if (username.length() > 0 && password.length() > 0) {
+
+            if (username.equals("hafsal")) {
 
                 if (password.equals("tasky")) {
 
-                    signInView.showLoginSuccess();
-
+                    mView.signInSuccess();
                     resetSignInAttempt();
 
                     return;
 
                 } else {
 
-                    signInView.showPasswordError();
-
+                    errorMesage = "Password Error";
                 }
 
             } else {
 
-                signInView.showUsernameError();
+                errorMesage = "Username Error";
 
             }
+
         } else {
-            signInView.showWhenAnyOfInputIsEmpty();
+
+            errorMesage = "Input Empty Error";
+
         }
 
-        // increment login attempt only if it's fail
         incrementSignInAttempt();
 
+        if (errorMesage != null) {
+
+            mView.showError(errorMesage);
+
+        }
     }
+
+
 }

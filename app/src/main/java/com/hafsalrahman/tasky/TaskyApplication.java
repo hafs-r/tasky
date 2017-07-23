@@ -1,10 +1,30 @@
 package com.hafsalrahman.tasky;
 
 import android.app.Application;
+
+import com.hafsalrahman.tasky.data.component.DaggerNetComponent;
+import com.hafsalrahman.tasky.data.component.NetComponent;
+import com.hafsalrahman.tasky.data.module.AppModule;
+import com.hafsalrahman.tasky.data.module.NetModule;
+
 /**
  * @author hafsalrahman on 7/19/17.
  * */
 public class TaskyApplication extends Application {
 
+    private NetComponent mNetComponent;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        mNetComponent = DaggerNetComponent.builder()
+                .appModule(new AppModule(this))
+                .netModule(new NetModule("http://5971f1a0fcf1680011f2eb69.mockapi.io/tasky/api/"))
+                .build();
+    }
+
+    public NetComponent getNetComponent() {
+        return mNetComponent;
+    }
 
 }

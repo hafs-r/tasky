@@ -17,6 +17,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 
+
 /**
  * Created by hafsal on 7/20/17.
  */
@@ -80,6 +81,7 @@ public class SignActivityTest {
         onView(withId(R.id.edt_password)).perform(typeText("tasky"));
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
         onView(withText("SignIn Success.")).check(matches(isDisplayed()));
+
     }
 
 }
