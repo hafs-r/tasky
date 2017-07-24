@@ -7,19 +7,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hafsalrahman.tasky.R;
-
 import com.hafsalrahman.tasky.TaskyApplication;
 import com.hafsalrahman.tasky.task.TaskActivity;
-
 
 import javax.inject.Inject;
 
 
 public class SignActivity extends AppCompatActivity implements SignInContract.View {
-
 
 
     @Inject
@@ -70,7 +66,7 @@ public class SignActivity extends AppCompatActivity implements SignInContract.Vi
 
     @Override
     public void showError(String message) {
-        Toast.makeText(getApplicationContext(),  message, Toast.LENGTH_SHORT).show();
+        responseView.setText(message);
 
     }
 

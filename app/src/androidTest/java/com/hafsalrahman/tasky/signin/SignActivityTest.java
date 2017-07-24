@@ -1,11 +1,14 @@
 package com.hafsalrahman.tasky.signin;
 
 import android.content.Intent;
+import android.support.test.espresso.intent.rule.IntentsTestRule;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.hafsalrahman.tasky.R;
+import com.hafsalrahman.tasky.task.TaskActivity;
 
+import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -13,6 +16,8 @@ import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static android.support.test.espresso.intent.Intents.intended;
+import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
 import static android.support.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
@@ -27,7 +32,9 @@ public class SignActivityTest {
 
     ActivityTestRule<SignActivity> activityTestRule =
             new ActivityTestRule<>(SignActivity.class);
-
+    @Rule
+    public IntentsTestRule<TaskActivity> mActivityRule = new IntentsTestRule<>(
+            TaskActivity.class);
 
     @Test
     public void checkUserNameAndPasswordEditTextIsDisplayed() throws Exception {
@@ -42,7 +49,7 @@ public class SignActivityTest {
         onView(withId(R.id.edt_user_name)).perform(typeText("hafsal"));
         onView(withId(R.id.edt_password)).perform(typeText("incorrect"));
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("Invalid password.")).check(matches(isDisplayed()));
+        onView(withText("Password Error")).check(matches(isDisplayed()));
     }
 
     @Test
@@ -51,7 +58,7 @@ public class SignActivityTest {
         onView(withId(R.id.edt_user_name)).perform(typeText("incorrect"));
         onView(withId(R.id.edt_password)).perform(typeText("tasky"));
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("Invalid username.")).check(matches(isDisplayed()));
+        onView(withText("Username Error")).check(matches(isDisplayed()));
 
     }
 
@@ -60,7 +67,7 @@ public class SignActivityTest {
         activityTestRule.launchActivity(new Intent());
 
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("Please enter required credentials.")).check(matches(isDisplayed()));
+        onView(withText("Input Empty Error")).check(matches(isDisplayed()));
     }
 
     @Test
@@ -70,7 +77,7 @@ public class SignActivityTest {
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("Maximum login attempts reached.")).check(matches(isDisplayed()));
+        onView(withText("Maximum sign in attempt reached")).check(matches(isDisplayed()));
 
     }
 
@@ -80,7 +87,7 @@ public class SignActivityTest {
         onView(withId(R.id.edt_user_name)).perform(typeText("hafsal"));
         onView(withId(R.id.edt_password)).perform(typeText("tasky"));
         onView(withId(R.id.btn_login)).check(matches(isDisplayed())).perform(click());
-        onView(withText("SignIn Success.")).check(matches(isDisplayed()));
+        intended(hasComponent(TaskActivity.class.getName()));
 
     }
 
