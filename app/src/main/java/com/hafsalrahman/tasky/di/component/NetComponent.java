@@ -1,7 +1,7 @@
-package com.hafsalrahman.tasky.data.component;
+package com.hafsalrahman.tasky.di.component;
 
-import com.hafsalrahman.tasky.data.module.AppModule;
-import com.hafsalrahman.tasky.data.module.NetModule;
+import com.hafsalrahman.tasky.di.module.AppModule;
+import com.hafsalrahman.tasky.di.module.NetModule;
 
 import javax.inject.Singleton;
 
@@ -10,7 +10,7 @@ import retrofit2.Retrofit;
 
 /**
  *
- * Created by Aditya on 21-Apr-16.
+ * Created by hafsalrahman on 21-Apr-16.
  */
 @Singleton
 @Component(modules = {AppModule.class, NetModule.class})

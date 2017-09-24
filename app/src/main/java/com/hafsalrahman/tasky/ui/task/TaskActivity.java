@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.task;
+package com.hafsalrahman.tasky.ui.task;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.hafsalrahman.tasky.R;
 import com.hafsalrahman.tasky.TaskyApplication;
+import com.hafsalrahman.tasky.di.module.TaskModule;
 
 import java.util.List;
 

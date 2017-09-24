@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.data.module;
+package com.hafsalrahman.tasky.di.module;
 
 import android.app.Application;
 import android.content.SharedPreferences;
@@ -20,7 +20,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 
 /**
- * Created by Aditya on 21-Apr-16.
+ * Created by hafsalrahman on 21-Apr-16.
  */
 @Module
 public class NetModule {

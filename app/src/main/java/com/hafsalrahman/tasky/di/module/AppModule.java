@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.data.module;
+package com.hafsalrahman.tasky.di.module;
 
 import android.app.Application;
 
@@ -8,7 +8,7 @@ import dagger.Module;
 import dagger.Provides;
 
 /**
- * Created by Aditya on 21-Apr-16.
+ * Created by hafsalrahman on 21-Apr-16.
  */
 @Module
 public class AppModule {

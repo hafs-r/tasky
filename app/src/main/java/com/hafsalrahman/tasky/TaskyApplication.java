@@ -2,10 +2,10 @@ package com.hafsalrahman.tasky;
 
 import android.app.Application;
 
-import com.hafsalrahman.tasky.data.component.DaggerNetComponent;
-import com.hafsalrahman.tasky.data.component.NetComponent;
-import com.hafsalrahman.tasky.data.module.AppModule;
-import com.hafsalrahman.tasky.data.module.NetModule;
+import com.hafsalrahman.tasky.di.component.DaggerNetComponent;
+import com.hafsalrahman.tasky.di.component.NetComponent;
+import com.hafsalrahman.tasky.di.module.AppModule;
+import com.hafsalrahman.tasky.di.module.NetModule;
 
 /**
  * @author hafsalrahman on 7/19/17.

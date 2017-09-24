@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.task;
+package com.hafsalrahman.tasky.ui.task;
 
 /**
  * Created by hafsal on 7/23/17.

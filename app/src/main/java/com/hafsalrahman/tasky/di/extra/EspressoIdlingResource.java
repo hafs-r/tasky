@@ -1,9 +1,9 @@
-package com.hafsalrahman.tasky.util;
+package com.hafsalrahman.tasky.di.extra;
 
 
 
 /**
- * Created by Aditya on 17-Aug-16.
+ * Created by hafsalrahman on 17-Aug-16.
  */
 
 public class EspressoIdlingResource {

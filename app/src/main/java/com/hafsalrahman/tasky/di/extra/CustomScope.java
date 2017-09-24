@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.util;
+package com.hafsalrahman.tasky.di.extra;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.Retention;
@@ -8,7 +8,7 @@ import javax.inject.Scope;
 
 /**
  * The name of the scope can be anything
- * Created by Aditya on 11-May-16.
+ * Created by hafsalrahman on 11-May-16.
  */
 @Documented
 @Scope

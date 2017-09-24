@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky.task;
+package com.hafsalrahman.tasky.ui.task;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

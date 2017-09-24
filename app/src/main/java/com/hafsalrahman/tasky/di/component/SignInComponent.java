@@ -1,8 +1,8 @@
-package com.hafsalrahman.tasky.signin;
+package com.hafsalrahman.tasky.di.component;
 
-import com.hafsalrahman.tasky.data.component.NetComponent;
-import com.hafsalrahman.tasky.task.TaskActivity;
-import com.hafsalrahman.tasky.util.CustomScope;
+import com.hafsalrahman.tasky.signin.SignActivity;
+import com.hafsalrahman.tasky.di.module.SignInModule;
+import com.hafsalrahman.tasky.di.extra.CustomScope;
 
 import dagger.Component;
 

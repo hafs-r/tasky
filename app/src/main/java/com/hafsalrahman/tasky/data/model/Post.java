@@ -1,7 +1,7 @@
-package com.hafsalrahman.tasky.data;
+package com.hafsalrahman.tasky.data.model;
 
 /**
- * Created by Aditya on 11-May-16.
+ * Created by hafsalrahman on 11-May-16.
  */
 public class Post {
     private final Integer userId;

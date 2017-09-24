@@ -1,6 +1,7 @@
-package com.hafsalrahman.tasky.signin;
+package com.hafsalrahman.tasky.di.module;
 
-import com.hafsalrahman.tasky.util.CustomScope;
+import com.hafsalrahman.tasky.signin.SignInContract;
+import com.hafsalrahman.tasky.di.extra.CustomScope;
 
 import dagger.Module;
 import dagger.Provides;

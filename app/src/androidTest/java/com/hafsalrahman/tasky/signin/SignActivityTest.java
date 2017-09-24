@@ -6,7 +6,7 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.hafsalrahman.tasky.R;
-import com.hafsalrahman.tasky.task.TaskActivity;
+import com.hafsalrahman.tasky.ui.task.TaskActivity;
 
 import org.junit.Rule;
 import org.junit.Test;

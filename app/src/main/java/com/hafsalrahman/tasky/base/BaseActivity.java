@@ -1,4 +1,4 @@
-package com.hafsalrahman.tasky;
+package com.hafsalrahman.tasky.base;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;

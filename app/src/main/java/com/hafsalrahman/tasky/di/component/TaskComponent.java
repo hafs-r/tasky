@@ -1,7 +1,8 @@
-package com.hafsalrahman.tasky.task;
+package com.hafsalrahman.tasky.di.component;
 
-import com.hafsalrahman.tasky.data.component.NetComponent;
-import com.hafsalrahman.tasky.util.CustomScope;
+import com.hafsalrahman.tasky.di.module.TaskModule;
+import com.hafsalrahman.tasky.ui.task.TaskActivity;
+import com.hafsalrahman.tasky.di.extra.CustomScope;
 
 import dagger.Component;
 
