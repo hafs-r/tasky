@@ -1,13 +1,13 @@
 package com.hafsalrahman.tasky.data.local.models;
 
-import com.ladwa.hafsalrahman.offlinefirstapp.data.local.DatabaseContract;
+import com.hafsalrahman.tasky.data.local.DatabaseContract;
 import com.pushtorefresh.storio.contentresolver.annotations.StorIOContentResolverColumn;
 import com.pushtorefresh.storio.contentresolver.annotations.StorIOContentResolverType;
 import com.pushtorefresh.storio.sqlite.annotations.StorIOSQLiteColumn;
 import com.pushtorefresh.storio.sqlite.annotations.StorIOSQLiteType;
 
+
 /**
- *
  * Created by hafsalrahman on 23-Oct-16.
  */
 
@@ -18,19 +18,19 @@ public class Post {
 
     @StorIOSQLiteColumn(name = DatabaseContract.Post.COLUMN_ID, key = true)
     @StorIOContentResolverColumn(name = DatabaseContract.Post.COLUMN_ID, key = true)
-    public  Integer id;
+    public Integer id;
 
     @StorIOSQLiteColumn(name = DatabaseContract.Post.COLUMN_USER_ID)
     @StorIOContentResolverColumn(name = DatabaseContract.Post.COLUMN_USER_ID)
-    public  Integer userId;
+    public Integer userId;
 
     @StorIOSQLiteColumn(name = DatabaseContract.Post.COLUMN_TITLE)
     @StorIOContentResolverColumn(name = DatabaseContract.Post.COLUMN_TITLE)
-    public  String title;
+    public String title;
 
     @StorIOSQLiteColumn(name = DatabaseContract.Post.COLUMN_BODY)
     @StorIOContentResolverColumn(name = DatabaseContract.Post.COLUMN_BODY)
-    public  String body;
+    public String body;
 
     public Post(Integer id, Integer userId, String title, String body) {
         this.id = id;

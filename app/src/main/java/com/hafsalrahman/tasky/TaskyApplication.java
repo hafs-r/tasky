@@ -12,7 +12,7 @@ import com.hafsalrahman.tasky.di.module.NetModule;
  * */
 public class TaskyApplication extends Application {
 
-    private NetComponent mNetComponent;
+    private static NetComponent mNetComponent;
 
     @Override
     public void onCreate() {
@@ -23,7 +23,7 @@ public class TaskyApplication extends Application {
                 .build();
     }
 
-    public NetComponent getNetComponent() {
+    public static NetComponent getNetComponent() {
         return mNetComponent;
     }
 

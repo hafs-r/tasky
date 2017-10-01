@@ -1,0 +1,24 @@
+#
+# Build configuration for Circle CI
+#
+
+general:
+    artifacts:
+        - /Users/hafsal/extraworkspace/tasky/app/build/outputs/apk/
+
+machine:
+    environment:
+        ANDROID_HOME: /Users/hafsal/Library/Android/sdk/
+
+dependencies:
+    pre:
+        - chmod +x gradlew
+    override:
+        - echo y | android update sdk --no-ui --all --filter tools,platform-tools,build-tools-25.0.3,android-25,extra-google-m2repository,extra-google-google_play_services,extra-android-support
+        - ANDROID_HOME=/Users/hafsal/Library/Android/sdk/ ./gradlew dependencies
+
+test:
+    override:
+        - (./gradlew assemble):
+            timeout: 360
+Raw

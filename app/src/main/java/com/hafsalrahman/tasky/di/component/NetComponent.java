@@ -1,5 +1,6 @@
 package com.hafsalrahman.tasky.di.component;
 
+import com.hafsalrahman.tasky.data.remote.AppRemoteDataStore;
 import com.hafsalrahman.tasky.di.module.AppModule;
 import com.hafsalrahman.tasky.di.module.NetModule;
 
@@ -18,4 +19,5 @@ public interface NetComponent {
     // downstream components need these exposed with the return type
     // method name does not really matter
     Retrofit retrofit();
+    void inject(AppRemoteDataStore rDs);
 }

@@ -1,20 +1,23 @@
 package com.hafsalrahman.tasky.data.remote;
 
-import android.util.Log;
 
-import com.ladwa.hafsalrahman.offlinefirstapp.App;
-import com.ladwa.hafsalrahman.offlinefirstapp.data.AppDataStore;
-import com.ladwa.hafsalrahman.offlinefirstapp.data.local.AppLocalDataStore;
-import com.ladwa.hafsalrahman.offlinefirstapp.data.local.models.Post;
+
+
+import com.hafsalrahman.tasky.TaskyApplication;
+import com.hafsalrahman.tasky.data.AppDataStore;
+import com.hafsalrahman.tasky.data.local.AppLocalDataStore;
+import com.hafsalrahman.tasky.data.local.models.Post;
+
 
 import java.util.List;
 
 import javax.inject.Inject;
+import io.reactivex.Observable;
 
+import io.reactivex.functions.Consumer;
 import retrofit2.Retrofit;
 import retrofit2.http.GET;
-import rx.Observable;
-import rx.functions.Action1;
+
 
 /**
  * Created by hafsalrahman on 23-Oct-16.
@@ -29,22 +32,39 @@ public class AppRemoteDataStore implements AppDataStore {
     AppLocalDataStore appLocalDataStore;
 
     public AppRemoteDataStore() {
-        App.getAppComponent().inject(this);
+        TaskyApplication.getNetComponent().inject(this);
     }
+
+
+//    @Override
+//    public Observable<List<Post>> getPost() {
+//        Log.d("REMOTE","Loaded from remote");
+//
+////        return retrofit.create(PostService.class).getPostList().doOnNext(new Consumer<List<Post>>() {
+////            @Override
+////            public void accept(List<Post> posts) {
+////                appLocalDataStore.savePostToDatabase(posts);
+////            }
+////        });
+//        return new Observable<List<Post>>() {
+//            @Override
+//            protected void subscribeActual(Observer<? super List<Post>> observer) {
+//
+//            }
+//        };
+//    }
 
 
     @Override
     public Observable<List<Post>> getPost() {
-        Log.d("REMOTE","Loaded from remote");
-
-        return retrofit.create(PostService.class).getPostList().doOnNext(new Action1<List<Post>>() {
+        return retrofit.create(PostService.class).getPostList().doOnNext(new Consumer<List<Post>>() {
             @Override
-            public void call(List<Post> posts) {
+            public void accept(List<Post> posts) {
                 appLocalDataStore.savePostToDatabase(posts);
             }
         });
-    }
 
+    }
 
     private interface PostService {
         @GET("/posts")

@@ -1,14 +1,17 @@
 package com.hafsalrahman.tasky.data;
 
 import com.hafsalrahman.tasky.data.local.AppLocalDataStore;
-import com.hafsalrahman.tasky.data.model.Post;
+
+import com.hafsalrahman.tasky.data.local.models.Post;
 import com.hafsalrahman.tasky.data.remote.AppRemoteDataStore;
+
 
 import java.util.List;
 
 import javax.inject.Inject;
 
 import io.reactivex.Observable;
+import io.reactivex.functions.Function;
 
 
 /**
@@ -30,14 +33,15 @@ public class AppRepository implements AppDataStore {
     @Override
     public Observable<List<Post>> getPost() {
 //        return Observable.concat(mAppLocalDataStore.getPost(), mAppRemoteDataStore.getPost())
-//                .first(new Function<List<Post>, Boolean>() {
+//                .first(new Function<List<Post>>() {
 //                    @Override
-//                    public Boolean apply(List<Post> posts) {
+//                    public Boolean apply(Post posts) {
 //                        //Commeted this log due Arrayindexoutofbound exception at first lauch of application
 ////                        Log.d("Repo", posts.get(0).getTitle());
 //                        return posts != null;
 //                    }
-        // });
+//         });
         return null;
+
     }
 }

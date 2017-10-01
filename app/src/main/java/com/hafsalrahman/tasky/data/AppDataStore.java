@@ -1,6 +1,8 @@
 package com.hafsalrahman.tasky.data;
 
-import com.hafsalrahman.tasky.data.model.Post;
+
+
+import com.hafsalrahman.tasky.data.local.models.Post;
 
 import java.util.List;
 
